@@ -594,12 +594,37 @@ if st.session_state.sayfa == "Ana Sayfa":
         unsafe_allow_html=True
     )
 
+# ============================================================
+# 3. GÜN KARTI
+# ============================================================
+
+st.markdown(
+    '<div class="day-card-button">',
+    unsafe_allow_html=True
+)
+
+if st.button(
+    "📅 30 Eylül — 3. Gün\n\n"
+    "🚶 Vondelpark • Rijksmuseum • Albert Cuyp • Heineken\n\n"
+    "📸 Dancing Houses • Staalmeestersbrug • Grimburgwal • Green House • De Wallen",
+    key="day3_card",
+    use_container_width=True
+):
+
+    st.session_state.sayfa = "3. Gün"
+
+    st.rerun()
+
+st.markdown(
+    '</div>',
+    unsafe_allow_html=True
+)
 
 # =========================================================
 # 1. GÜN DETAY
 # =========================================================
 
-elif st.session_state.sayfa == "1. Gün":
+if st.session_state.sayfa == "1. Gün":
 
 
     # -----------------------------------------------------
@@ -849,7 +874,7 @@ elif st.session_state.sayfa == "2. Gün":
     # -----------------------------------------------------
 
     st.subheader(
-        "1) 🏠 OTELE ÇIKIŞ"
+        "1) 🏠 OTELDEN ÇIKIŞ"
     )
 
     st.write(
@@ -1094,3 +1119,296 @@ elif st.session_state.sayfa == "2. Gün":
         height=600,
         key="map_day2"
     )
+# ============================================================
+# 3. GÜN DETAY - 30 EYLÜL
+# ============================================================
+
+elif st.session_state.sayfa == "3. Gün":
+
+    # ========================================================
+    # GERİ
+    # ========================================================
+
+    if st.button(
+        "← ANA SAYFAYA DÖN",
+        key="back_day3"
+    ):
+        st.session_state.sayfa = "Ana Sayfa"
+        st.rerun()
+
+    # ========================================================
+    # BAŞLIK
+    # ========================================================
+
+    st.title("📅 30 Eylül - 3. Gün")
+
+    st.markdown("---")
+
+    # ========================================================
+    # KOORDİNATLAR
+    # ========================================================
+
+    hotel = (52.3788, 4.8540)
+
+    vondelpark = (52.3579, 4.8686)
+
+    rijksmuseum = (52.3600, 4.8852)
+    museumplein = (52.3584, 4.8811)
+
+    albert_cuyp = (52.3560, 4.8910)
+
+    heineken = (52.3578, 4.8910)
+
+    dancing_houses_photo = (52.3678, 4.8974)
+
+    staalmeestersbrug = (52.3682, 4.8977)
+
+    grimburgwal = (52.3688, 4.8948)
+
+    green_house = (52.3721, 4.8931)
+
+    de_wallen = (52.3740, 4.8970)
+
+    # ========================================================
+    # ROTA
+    # ========================================================
+
+    rota = [
+        hotel,
+        vondelpark,
+        rijksmuseum,
+        albert_cuyp,
+        heineken,
+        dancing_houses_photo,
+        staalmeestersbrug,
+        grimburgwal,
+        green_house,
+        de_wallen,
+        hotel
+    ]
+
+    # ========================================================
+    # GÜN PLANI
+    # ========================================================
+
+    st.header("30 Eylül - Gün Planı")
+
+    st.markdown("""
+    ### 1) 🏠 OTELDEN ÇIKIŞ
+
+    🏠 **Triple G Hotels**
+
+    🕘 **09:00 — Otelden çıkış**
+
+    ---
+
+    ### 2) 🌳 VONDELPARK
+
+    🕤 **≈09:30 — Vondelpark'a varış**
+
+    ☕ Parkta kahvaltı
+
+    🚶 Biraz parkta gezinti ve dinlenme
+
+    🕥 **≈10:45 — Vondelpark'tan çıkış**
+
+    ---
+
+    ### 3) 🏛️ RIJKSMUSEUM & MUSEUMPLEIN
+
+    🕚 **≈11:00 — Museumplein bölgesine varış**
+
+    📸 Rijksmuseum dışı
+
+    📸 Van Gogh Museum çevresi
+
+    📸 Moco Museum çevresi
+
+    📸 Museumplein
+
+    🕛 **≈12:00 — Bölgeden ayrılış**
+
+    ---
+
+    ### 4) 🛍️ ALBERT CUYP MARKET
+
+    🕧 **≈12:15 — Albert Cuyp Market**
+
+    🛍️ Pazar gezisi
+
+    🍴 Atıştırmalık / kısa mola
+
+    🕐 **≈13:00 — Heineken bölgesine geçiş**
+
+    ---
+
+    ### 5) 🍺 HEINEKEN EXPERIENCE
+
+    🕜 **≈13:30 — Heineken bölgesine varış**
+
+    🍽️ Öğle yemeği / hazırlık
+
+    🕑 **14:00–16:00 — Heineken Experience**
+
+    ⏱️ Yaklaşık 2 saat
+
+    ---
+
+    ### 6) 📸 DANCING HOUSES KARŞISI
+
+    🕟 **≈16:20 — Fotoğraf noktasına varış**
+
+    📸 Fotoğraf çekimi
+
+    🧍 Biraz oyalanma
+
+    🕟 **≈16:40 — Ayrılış**
+
+    ---
+
+    ### 7) 🌉 STAALMEESTERSBRUG
+
+    🕟 **≈16:40 — Staalmeestersbrug**
+
+    📸 Fotoğraf
+
+    🌉 Kanal manzarası
+
+    🕔 **≈17:00 — Ayrılış**
+
+    ---
+
+    ### 8) 🌊 GRIMBURGWAL CANAL VIEW
+
+    🕔 **≈17:05 — Grimburgwal**
+
+    📸 Kanal manzarası
+
+    🕠 **≈17:25 — Ayrılış**
+
+    ---
+
+    ### 9) 🌿 GREEN HOUSE CENTRUM
+
+    🕠 **≈17:30 — Green House Centrum**
+
+    🌿 Biraz oyalanma
+
+    🧍 Dinlenme
+
+    🕡 **≈18:15 — Ayrılış**
+
+    ---
+
+    ### 10) 🔴 DE WALLEN / RED LIGHT DISTRICT
+
+    🕡 **18:15–22:00**
+
+    🚶 De Wallen gezintisi
+
+    📸 Çevreyi keşfetme
+
+    🍽️ Akşam yemeği
+
+    🌃 Akşam gezisi
+
+    🕙 **22:00 — Gezinin bitişi**
+
+    ---
+
+    ### 11) 🏠 OTELE DÖNÜŞ
+
+    🕥 **≈22:30 — Triple G Hotels'e tahmini varış**
+
+    💤 Gün sonu
+    """)
+
+    st.markdown("---")
+
+    # ========================================================
+    # HARİTA
+    # ========================================================
+
+    st.header("🗺️ 30 Eylül Rotası")
+
+    import folium
+    from streamlit_folium import st_folium
+
+    m = folium.Map(
+        location=(52.3675, 4.8900),
+        zoom_start=13,
+        tiles="OpenStreetMap"
+    )
+
+    # ========================================================
+    # NUMARALI PINLER
+    # ========================================================
+
+    pinler = [
+        (1, "Triple G Hotels", hotel),
+        (2, "Vondelpark", vondelpark),
+        (3, "Rijksmuseum / Museumplein", rijksmuseum),
+        (4, "Albert Cuyp Market", albert_cuyp),
+        (5, "Heineken Experience", heineken),
+        (6, "Dancing Houses karşısı - Fotoğraf Noktası", dancing_houses_photo),
+        (7, "Staalmeestersbrug", staalmeestersbrug),
+        (8, "Grimburgwal Canal View", grimburgwal),
+        (9, "Green House Centrum", green_house),
+        (10, "De Wallen / Red Light District", de_wallen),
+        (11, "Triple G Hotels - Dönüş", hotel)
+    ]
+
+    # ========================================================
+    # PINLERİ OLUŞTUR
+    # ========================================================
+
+    for no, isim, koordinat in pinler:
+
+        folium.Marker(
+            location=koordinat,
+            tooltip=f"{no}. {isim}",
+            icon=folium.DivIcon(
+                html=f"""
+                <div style="
+                    background-color:#ffffff;
+                    border:3px solid #333333;
+                    border-radius:50%;
+                    width:38px;
+                    height:38px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:16px;
+                    font-weight:bold;
+                    color:#222222;
+                    box-shadow:0 2px 6px rgba(0,0,0,0.4);
+                ">
+                    {no}
+                </div>
+                """
+            )
+        ).add_to(m)
+
+    # ========================================================
+    # ROTA ÇİZGİSİ
+    # ========================================================
+
+    folium.PolyLine(
+        rota,
+        color="#333333",
+        weight=4,
+        opacity=0.75
+    ).add_to(m)
+
+    # ========================================================
+    # HARİTAYI GÖSTER
+    # ========================================================
+
+    st_folium(
+        m,
+        width=None,
+        height=550,
+        key="map_day3"
+    )
+
+    st.divider()
